@@ -46,7 +46,7 @@ Soy **Técnico Superior en DAM** con más de **13 años de experiencia**. Mi tra
 ¿Quieres charlar sobre un proyecto o tecnología?
 * **LinkedIn:** [jfrancisco-belizon-web3-blockchain](https://linkedin.com/in/jfrancisco-belizon-web3-blockchain)
 * **Email:** jfranciscobelrod@gmail.com
-* **Ubicación:** Huelva, España 🇪🇸
+
 
 ---
 *Hecho con 🧡 y mucho código por Juan Francisco Belizón.*
