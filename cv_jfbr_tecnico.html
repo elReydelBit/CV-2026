@@ -1,0 +1,956 @@
++<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV · Juan Francisco Belizón Rodríguez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:     #0b1e38;
+    --dark2:    #112844;
+    --accent:   #ff6235;
+    --accent2:  #f7a21e;
+    --white:    #ffffff;
+    --light:    #f4f6fa;
+    --muted:    #8fa3bc;
+    --text:     #1a2b40;
+    --line:     rgba(255,98,53,0.25);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    font-size: 9.2pt;
+    line-height: 1.45;
+  }
+
+  /* ─── PAGE WRAPPER ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    display: grid;
+    grid-template-columns: 68mm 1fr;
+    background: var(--white);
+    margin: 0 auto;
+    box-shadow: 0 0 40px rgba(0,0,0,.15);
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    background: linear-gradient(175deg, var(--dark) 0%, var(--dark2) 100%);
+    color: var(--white);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,98,53,.18);
+  }
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: 40px; left: -80px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,98,53,.10);
+  }
+
+  /* Accent top bar */
+  .sidebar-topbar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .sidebar-inner { padding: 20px 18px 24px; }
+
+  /* Photo */
+  .photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .photo-ring {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    margin-bottom: 10px;
+  }
+  .photo-ring img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--dark2);
+    display: block;
+  }
+  .name-block { text-align: center; }
+  .name-block h1 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: .5px;
+    line-height: 1.2;
+    color: var(--white);
+  }
+  .name-block .title {
+    font-size: 7.5pt;
+    color: var(--accent);
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* Divider */
+  .s-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+    margin: 14px 0;
+  }
+
+  /* Section labels */
+  .s-label {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* Contact */
+  .contact-list { list-style: none; }
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 6px;
+    font-size: 8pt;
+    color: rgba(255,255,255,.82);
+  }
+  .contact-list li .icon {
+    color: var(--accent);
+    font-size: 9pt;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Skills bars */
+  .skill-group { margin-bottom: 10px; }
+  .skill-group .sg-title {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 7pt;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .skill-tag {
+    background: rgba(255,98,53,.12);
+    border: 1px solid rgba(255,98,53,.28);
+    color: rgba(255,255,255,.85);
+    font-size: 7pt;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Soft skills */
+  .soft-skill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 5px;
+    font-size: 8pt;
+    color: rgba(255,255,255,.78);
+  }
+  .soft-skill .bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .soft-skill .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* Languages */
+  .lang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 8pt;
+    color: rgba(255,255,255,.82);
+  }
+  .lang-badge {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 7pt;
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  /* ─── MAIN ─── */
+  .main {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    position: relative;
+  }
+
+  .main-topbar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+
+  .main-inner { padding: 20px 22px 20px 20px; }
+
+  /* Profile summary */
+  .profile-summary {
+    background: linear-gradient(135deg, #f0f4fa 0%, #f8f9ff 100%);
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 16px;
+    font-size: 8.5pt;
+    color: #1a2b40;
+    line-height: 1.55;
+  }
+  .profile-summary strong {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 9pt;
+    color: var(--dark);
+  }
+
+  /* Section headers */
+  .m-section { margin-bottom: 14px; }
+  .m-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .m-section-header h2 {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dark);
+  }
+  .m-section-header .h-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,98,53,.4), transparent);
+  }
+  .m-section-header .h-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 1px;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* Experience cards */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eef1f6;
+    position: relative;
+    padding-left: 10px;
+  }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 4px;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .exp-title {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+  .exp-company {
+    font-size: 8pt;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .exp-date {
+    font-size: 7.5pt;
+    color: var(--muted);
+    white-space: nowrap;
+    text-align: right;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 500;
+  }
+  .exp-location {
+    font-size: 7.5pt;
+    color: var(--muted);
+    grid-column: 2;
+    text-align: right;
+  }
+  .exp-body {
+    grid-column: 1 / -1;
+    margin-top: 3px;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 8pt;
+    color: #374a60;
+    margin-bottom: 2px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent2);
+    font-size: 7pt;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .tech-pill {
+    background: #f0f4fa;
+    border: 1px solid #d8e2ee;
+    color: #4a6080;
+    font-size: 6.8pt;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Education */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 10px;
+    margin-bottom: 8px;
+    padding-left: 10px;
+    position: relative;
+  }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 5px;
+    width: 3px; height: 3px;
+    background: var(--accent2);
+    border-radius: 50%;
+  }
+  .edu-title {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    color: var(--dark);
+  }
+  .edu-inst {
+    font-size: 7.8pt;
+    color: #6b85a0;
+  }
+  .edu-date {
+    font-size: 7.5pt;
+    color: var(--muted);
+    font-family: 'Oxanium', sans-serif;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .edu-detail {
+    grid-column: 1 / -1;
+    font-size: 7.8pt;
+    color: #5a738c;
+    margin-top: 1px;
+  }
+
+  /* Achievements row */
+  .achievements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 2px;
+  }
+  .achievement-card {
+    background: linear-gradient(135deg, #f0f4fa, #f8f9ff);
+    border: 1px solid #d8e2ee;
+    border-radius: 6px;
+    padding: 8px 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .achievement-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+  }
+  .achievement-card .ach-value {
+    font-family: 'Oxanium', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .achievement-card .ach-label {
+    font-size: 7.5pt;
+    color: #4a6080;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  /* ─── PAGE 2 BREAK ─── */
+  @media print {
+    body { background: white; }
+    .page {
+      box-shadow: none;
+      page-break-after: auto;
+    }
+    .page-break { page-break-before: always; }
+  }
+
+  /* ─── FOOTER STRIP ─── */
+  .footer-strip {
+    margin-top: auto;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ PAGE 1 ══════════════ -->
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-topbar"></div>
+    <div class="sidebar-inner">
+
+      <!-- Photo + Name -->
+      <div class="photo-wrap">
+        <div class="photo-ring">
+          <img src="Icono.jfif" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" alt="Foto de Juan Francisco Belizón Rodríguez">
+        </div>
+        <div class="name-block">
+          <h1>Juan Francisco<br>Belizón Rodríguez</h1>
+          <div class="title">Full-Stack Dev<br>Blockchain Engineer · Tech Lead</div>
+        </div>
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Contact -->
+      <div class="s-label">Contacto</div>
+      <ul class="contact-list">
+        <li><span class="icon">✉</span> jfranciscobelrod@gmail.com</li>
+        <li><span class="icon">✆</span> (+34) 604 143 878</li>
+        <li><span class="icon">⌖</span> Huelva, España</li>
+        <li><span class="icon">in</span> linkedin.com/in/jfrancisco-belizon-web3-blockchain</li>
+      </ul>
+
+      <div class="s-divider"></div>
+
+      <!-- Tech Stack -->
+      <div class="s-label">Stack Técnico</div>
+
+      <div class="skill-group">
+        <div class="sg-title">Lenguajes</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">C/C++</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">PL/SQL</span>
+          <span class="skill-tag">Solidity</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">Frameworks & Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">REST/GraphQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">Blockchain & Web3</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Ethereum</span>
+          <span class="skill-tag">Hyperledger</span>
+          <span class="skill-tag">Smart Contracts</span>
+          <span class="skill-tag">DeFi</span>
+          <span class="skill-tag">NFTs</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="sg-title">DevOps & Seguridad</div>
+        <div class="skill-tags">
+          <span class="skill-tag">DevSecOps</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Metasploit</span>
+          <span class="skill-tag">OWASP</span>
+          <span class="skill-tag">Scrum</span>
+        </div>
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Languages -->
+      <div class="s-label">Idiomas</div>
+      <div class="lang-item">
+        <span>Español</span>
+        <span class="lang-badge">NATIVO</span>
+      </div>
+      <div class="lang-item">
+        <span>Inglés</span>
+        <span class="lang-badge">B1</span>
+      </div>
+      <div class="lang-item">
+        <span>Francés</span>
+        <span class="lang-badge">B1</span>
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Soft Skills -->
+      <div class="s-label">Competencias</div>
+      <div class="soft-skill">
+        <span style="min-width:82px">Liderazgo técnico</span>
+        <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="soft-skill">
+        <span style="min-width:82px">Arquitectura SW</span>
+        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="soft-skill">
+        <span style="min-width:82px">Ciberseguridad</span>
+        <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="soft-skill">
+        <span style="min-width:82px">Gestión de equipos</span>
+        <div class="bar"><div class="bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="soft-skill">
+        <span style="min-width:82px">Comunicación</span>
+        <div class="bar"><div class="bar-fill" style="width:92%"></div></div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="main-topbar"></div>
+    <div class="main-inner">
+
+      <!-- Perfil -->
+      <div class="profile-summary">
+        <strong>Perfil Profesional</strong><br>
+        Técnico Superior en DAM con <strong>13 años de trayectoria</strong> en desarrollo full-stack, arquitectura de sistemas y liderazgo técnico. Ex-CTO con experiencia en <strong>Fintech, blockchain y DevSecOps</strong>. Especializado en construir soluciones escalables desde la capa de datos hasta el despliegue cloud, con visión estratégica y capacidad demostrada de gestión de equipos multidisciplinares.
+      </div>
+
+      <!-- Experiencia -->
+      <div class="m-section">
+        <div class="m-section-header">
+          <div class="h-dot"></div>
+          <h2>Experiencia Laboral</h2>
+          <div class="h-line"></div>
+        </div>
+
+        <!-- CTO -->
+        <div class="exp-item">
+          <div>
+            <div class="exp-title">Chief Technology Officer</div>
+            <div class="exp-company">Método Bitcoin · Barcelona, España</div>
+          </div>
+          <div>
+            <div class="exp-date">Nov 2023 – Abr 2024</div>
+          </div>
+          <div class="exp-body">
+            <ul class="exp-bullets">
+              <li>Dirección tecnológica integral: supervisión de desarrollo, despliegue e innovación de productos Fintech.</li>
+              <li>Coordinación de 8+ profesionales técnicos (Dev, DevOps, Ciberseguridad).</li>
+              <li>Implementación de auditorías mensuales; cumplimiento normativo GDPR, PCI-DSS, MiCA y DAC8.</li>
+              <li>Integración blockchain para finanzas seguras con arquitectura de smart contracts y nodos privados.</li>
+            </ul>
+            <div class="tech-pills">
+              <span class="tech-pill">Django</span>
+              <span class="tech-pill">Blockchain</span>
+              <span class="tech-pill">REST/GraphQL</span>
+              <span class="tech-pill">Wireshark</span>
+              <span class="tech-pill">Metasploit</span>
+              <span class="tech-pill">OWASP ZAP</span>
+              <span class="tech-pill">Stripe</span>
+              <span class="tech-pill">GitLab CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Co-Founder Phi code -->
+        <div class="exp-item">
+          <div>
+            <div class="exp-title">Co-Founder · Jefe de Desarrollo App Móviles</div>
+            <div class="exp-company">Phi Code Development · Madrid, España</div>
+          </div>
+          <div>
+            <div class="exp-date">Sep 2024 – Ene 2025</div>
+          </div>
+          <div class="exp-body">
+            <ul class="exp-bullets">
+              <li>Liderazgo de 2 equipos técnicos en arquitecturas escalables cloud-native.</li>
+              <li>Diseño de arquitecturas híbridas blockchain + sistemas legacy (Web2 → Web3).</li>
+              <li>Traducción de requisitos empresariales en soluciones IT a medida con integración DevSecOps.</li>
+            </ul>
+            <div class="tech-pills">
+              <span class="tech-pill">Django</span>
+              <span class="tech-pill">Three.js</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">C/C++</span>
+              <span class="tech-pill">Blockchain</span>
+              <span class="tech-pill">Scrum</span>
+              <span class="tech-pill">Kanban</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- IT PM Onets -->
+        <div class="exp-item">
+          <div>
+            <div class="exp-title">IT Project Manager</div>
+            <div class="exp-company">ONETs · Madrid, España</div>
+          </div>
+          <div>
+            <div class="exp-date">May 2024 – Ago 2024</div>
+          </div>
+          <div class="exp-body">
+            <ul class="exp-bullets">
+              <li>Coordinación técnica de equipos (Dev, QA, DevOps) en proyectos cloud escalables.</li>
+              <li>Integración de prácticas DevSecOps en el ciclo SDLC completo.</li>
+            </ul>
+            <div class="tech-pills">
+              <span class="tech-pill">Django</span>
+              <span class="tech-pill">GitHub</span>
+              <span class="tech-pill">DevSecOps</span>
+              <span class="tech-pill">Scrum</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /experiencia -->
+
+      <!-- Logros métricas -->
+      <div class="m-section">
+        <div class="m-section-header">
+          <div class="h-dot"></div>
+          <h2>Logros Destacados</h2>
+          <div class="h-line"></div>
+        </div>
+        <div class="achievements">
+          <div class="achievement-card">
+            <div class="ach-value">13+</div>
+            <div class="ach-label">años de desarrollo multiplataforma activo (2012–Presente)</div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-value">30%</div>
+            <div class="ach-label">mejora de SLA en módulos críticos — Everis / Madrid Digital</div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-value">8+</div>
+            <div class="ach-label">profesionales técnicos coordinados como CTO en Fintech</div>
+          </div>
+          <div class="achievement-card">
+            <div class="ach-value">Top</div>
+            <div class="ach-label">Finalista Jóvenes Talentos U-tad 2012 · Web3D pionero en España</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main-inner -->
+    <div class="footer-strip"></div>
+  </main>
+
+</div><!-- /page 1 -->
+
+
+<!-- ══════════════ PAGE 2 ══════════════ -->
+<div class="page" style="margin-top:8px;">
+
+  <!-- SIDEBAR P2 -->
+  <aside class="sidebar">
+    <div class="sidebar-topbar"></div>
+    <div class="sidebar-inner">
+
+      <!-- Metodologías -->
+      <div class="s-label" style="margin-top:6px;">Metodologías</div>
+      <div class="skill-tags" style="margin-bottom:12px;">
+        <span class="skill-tag">Scrum</span>
+        <span class="skill-tag">Kanban</span>
+        <span class="skill-tag">DevSecOps</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">Agile</span>
+        <span class="skill-tag">TDD</span>
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Herramientas -->
+      <div class="s-label">Herramientas</div>
+      <div class="skill-group">
+        <div class="sg-title">Plataformas & Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Cloudflare</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">GitLab</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Docker</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Bases de Datos</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Oracle</span>
+          <span class="skill-tag">PL/SQL</span>
+          <span class="skill-tag">Hibernate</span>
+          <span class="skill-tag">SQL Developer</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Seguridad</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">Metasploit</span>
+          <span class="skill-tag">OWASP ZAP</span>
+          <span class="skill-tag">VPN corp.</span>
+          <span class="skill-tag">Red/Blue Team</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">Mobile & 3D</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Android/Java</span>
+          <span class="skill-tag">Unity3D</span>
+          <span class="skill-tag">Three.js</span>
+          <span class="skill-tag">Unreal</span>
+          <span class="skill-tag">SFML</span>
+        </div>
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Valores -->
+      <div class="s-label">Principio de trabajo</div>
+      <div style="font-size:7.8pt; color:rgba(255,255,255,.65); font-style:italic; line-height:1.5; padding-right:4px;">
+        «El código perfecto no existe,<br>pero el código seguro y<br>mantenible sí.»
+      </div>
+
+      <div class="s-divider"></div>
+
+      <!-- Intereses -->
+      <div class="s-label">Intereses</div>
+      <div class="skill-tags">
+        <span class="skill-tag">IA Aplicada</span>
+        <span class="skill-tag">Web3</span>
+        <span class="skill-tag">DeFi</span>
+        <span class="skill-tag">Open Source</span>
+        <span class="skill-tag">Hardware libre</span>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN P2 -->
+  <main class="main">
+    <div class="main-topbar"></div>
+    <div class="main-inner">
+
+      <!-- Experiencia (continuación) -->
+      <div class="m-section">
+        <div class="m-section-header">
+          <div class="h-dot"></div>
+          <h2>Experiencia Laboral <span style="font-size:7.5pt;color:#8fa3bc;text-transform:none;font-weight:400;">(continuación)</span></h2>
+          <div class="h-line"></div>
+        </div>
+
+        <!-- Everis -->
+        <div class="exp-item">
+          <div>
+            <div class="exp-title">Desarrollador de Software Junior</div>
+            <div class="exp-company">Everis (NTT DATA) · Sevilla, España</div>
+          </div>
+          <div>
+            <div class="exp-date">Jun 2018 – Mar 2020</div>
+          </div>
+          <div class="exp-body">
+            <ul class="exp-bullets">
+              <li>Desarrollo y mantenimiento de módulos críticos para <em>Madrid Digital</em> bajo estándares ISO.</li>
+              <li>Mejora del <strong>30% en SLA</strong> mediante resolución proactiva de incidencias técnicas.</li>
+              <li>Implementación de nuevas funcionalidades alineadas con requisitos de negocio público.</li>
+            </ul>
+            <div class="tech-pills">
+              <span class="tech-pill">PL/SQL</span>
+              <span class="tech-pill">Oracle Forms</span>
+              <span class="tech-pill">VMware</span>
+              <span class="tech-pill">SVN</span>
+              <span class="tech-pill">Jira</span>
+              <span class="tech-pill">Scrum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelancer -->
+        <div class="exp-item">
+          <div>
+            <div class="exp-title">Freelancer Full-Stack · Moonlighter</div>
+            <div class="exp-company">Profesional Independiente</div>
+          </div>
+          <div>
+            <div class="exp-date">Abr 2012 – Presente</div>
+          </div>
+          <div class="exp-body">
+            <ul class="exp-bullets">
+              <li>Desarrollo multiplataforma (web, desktop, Android) con enfoque seguro y arquitectura escalable.</li>
+              <li>Implementación de pruebas Red/Blue Team y hardening de código en proyectos de cliente.</li>
+              <li>Metodología Scrum adaptada: sprints cortos (3–5 días) con CI/CD artesanal en Bash/Python.</li>
+            </ul>
+            <div class="tech-pills">
+              <span class="tech-pill">Unity3D</span>
+              <span class="tech-pill">C#/C++</span>
+              <span class="tech-pill">Android/Java</span>
+              <span class="tech-pill">AngularJS</span>
+              <span class="tech-pill">SQL/Hibernate</span>
+              <span class="tech-pill">SFML</span>
+              <span class="tech-pill">Bash/Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Formación -->
+      <div class="m-section">
+        <div class="m-section-header">
+          <div class="h-dot"></div>
+          <h2>Formación Académica</h2>
+          <div class="h-line"></div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Master Ingeniero Blockchain 360 (900 h)</div>
+            <div class="edu-inst">CodeCrypto Academy</div>
+            <div class="edu-detail">Ethereum, Hyperledger, Smart Contracts, DeFi, NFTs, criptoeconomía, consultoría Web3.</div>
+          </div>
+          <div class="edu-date">Nov 2023 – Presente</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">FPGS · Desarrollo de Aplicaciones Multiplataforma (2000 h)</div>
+            <div class="edu-inst">IES El Majuelo · Gines, Sevilla</div>
+            <div class="edu-detail">Java, C#, Python, PHP, SQL, Android nativo, arquitectura MVC, POO, Bootstrap, Hibernate.</div>
+          </div>
+          <div class="edu-date">2014 – 2018</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Curso Blockchain y Web3 — Udemy</div>
+            <div class="edu-inst">Solidity, Hardhat, Truffle, Chainlink, ERC-20/ERC-721, Proof of Work / Authority.</div>
+          </div>
+          <div class="edu-date">Sep – Oct 2023</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Desarrollo de Videojuegos con C++ y SFML</div>
+            <div class="edu-inst">InforBOOK's / Edgar D'Andrea</div>
+            <div class="edu-detail">Motores gráficos, AOP, ECS pattern, multithreading, shaders GLSL básicos.</div>
+          </div>
+          <div class="edu-date">Mar 2022 – Ene 2023</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">FPE Desarrollo de Videojuegos (900 h)</div>
+            <div class="edu-inst">Confederación de Empresarios Andaluces · Sevilla</div>
+            <div class="edu-detail">Unity3D, OpenGL, 3ds Max, C#, OOP, gestión de pipelines arte-código.</div>
+          </div>
+          <div class="edu-date">2011 – 2012</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Desarrollo Web y Multimedia (384 h)</div>
+            <div class="edu-inst">Fundación Andaluza Fondo Formación y Empleo · Huelva</div>
+            <div class="edu-detail">HTML5, CSS3, JavaScript, PHP, XAMPP. Base del pensamiento full-lifecycle.</div>
+          </div>
+          <div class="edu-date">2010 – 2011</div>
+        </div>
+
+      </div>
+
+      <!-- Certificaciones en curso -->
+      <div class="m-section">
+        <div class="m-section-header">
+          <div class="h-dot"></div>
+          <h2>Certificación en Curso</h2>
+          <div class="h-line"></div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Certificado Profesional SSCE0110 — Habilitación Docente FP (380 h)</div>
+            <div class="edu-inst">INAFE · Huelva</div>
+            <div class="edu-detail">Metodologías activas, diseño didáctico, competencias digitales aplicadas al sector IT.</div>
+          </div>
+          <div class="edu-date">Sep 2025 – Presente</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-strip"></div>
+  </main>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
